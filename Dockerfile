@@ -1,9 +1,12 @@
 FROM python:3.10-slim
 
-# 避免交互式提示
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && \
+# 手动写入阿里云 Debian 源并安装依赖
+RUN echo "deb https://mirrors.aliyun.com/debian/ bookworm main contrib non-free" > /etc/apt/sources.list && \
+    echo "deb https://mirrors.aliyun.com/debian/ bookworm-updates main contrib non-free" >> /etc/apt/sources.list && \
+    echo "deb https://mirrors.aliyun.com/debian-security bookworm-security main contrib non-free" >> /etc/apt/sources.list && \
+    apt-get update && \
     apt-get install -y \
         build-essential \
         nodejs \
