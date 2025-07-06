@@ -73,6 +73,19 @@ curl -X POST -H "Content-Type: application/json" \
 python batch_runner.py
 ```
 
+✅ 接口
+POST /execute：执行代码
+
+GET /traces：列出 Traces
+
+GET /trace/<trace_id>：查看指定 Trace
+
+POST /claude：调用 Claude 生成
+
+POST /upload：上传文件
+
+GET /download/<filename>：下载文件
+
 ---
 
 ### 5️⃣ 查看 Trace

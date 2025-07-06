@@ -1,17 +1,14 @@
 import requests
-import uuid
+
+CLAUDE_API_URL = "http://localhost:5000/claude"  # 调用你自己封装的Claude接口
 
 prompts = [
-    "print('Hello from Prompt 1')",
-    "print('Hello from Prompt 2')",
-    "print('Hello from Prompt 3')",
+    "Write a Python function to reverse a string.",
+    "Create a simple Node.js server example.",
+    "Explain what a Python generator is."
 ]
 
-for idx, code in enumerate(prompts):
-    trace_id = str(uuid.uuid4())
-    print(f"🚀 Running prompt {idx+1} with trace_id={trace_id}...")
-    response = requests.post(
-        "http://localhost:5000/execute",
-        json={"code": code, "trace_id": trace_id}
-    )
-    print(response.json())
+for prompt in prompts:
+    resp = requests.post(CLAUDE_API_URL, json={"prompt": prompt})
+    print(f"Prompt: {prompt}")
+    print(f"Response: {resp.json()}")
