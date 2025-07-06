@@ -124,13 +124,10 @@ WebSocket execute_code：通过 WebSocket 实时代码执行
 
 
 ⚠️ 注意
-在生产环境中使用时应进一步对 Docker 沙箱进行安全加固。
 
-混合云调度接口 /schedule 为示例演示，真实项目需完善调度中心、心跳检测、负载均衡等。
----
+- 在生产环境中使用时应进一步对 Docker 沙箱进行安全加固。
 
-
-## ⚠️ 注意事项
+- 混合云调度接口 /schedule 为示例演示，真实项目需完善调度中心、心跳检测、负载均衡等。
 
 - 每次修改 \`sandbox_runner.py\` 后，都需要重新执行：
   ```bash
@@ -144,7 +141,6 @@ WebSocket execute_code：通过 WebSocket 实时代码执行
 
 - Docker
 - Python 3.x
-- pip install colorama（仅 submit.py 需要）
 
 ---
 
